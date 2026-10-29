@@ -1,0 +1,16 @@
+﻿const menuButton=document.querySelector('[data-toggle-sidebar]');
+const backdrop=document.querySelector('[data-close-sidebar]');
+const sidebar=document.querySelector('#workspace-sidebar');
+const mobileViewport=window.matchMedia('(max-width:760px)');
+const updateSidebarAccess=()=>{if(sidebar)sidebar.inert=mobileViewport.matches&&!document.body.classList.contains('sidebar-open');};
+const closeSidebar=()=>{const wasOpen=document.body.classList.contains('sidebar-open');document.body.classList.remove('sidebar-open');menuButton?.setAttribute('aria-expanded','false');if(backdrop)backdrop.hidden=true;updateSidebarAccess();if(wasOpen)menuButton?.focus({preventScroll:true});};
+menuButton?.addEventListener('click',()=>{const open=!document.body.classList.contains('sidebar-open');document.body.classList.toggle('sidebar-open',open);menuButton.setAttribute('aria-expanded',String(open));backdrop.hidden=!open;updateSidebarAccess();if(open)sidebar?.querySelector('a')?.focus();});
+mobileViewport.addEventListener('change',()=>{closeSidebar();updateSidebarAccess();});updateSidebarAccess();
+backdrop?.addEventListener('click',closeSidebar);
+document.addEventListener('keydown',event=>{if(event.key==='Escape'){closeSidebar();document.querySelectorAll('details[open]').forEach(item=>item.open=false);}});
+document.addEventListener('click',event=>{for(const menu of document.querySelectorAll('.account-menu[open]'))if(!menu.contains(event.target))menu.open=false;});
+const dialog=document.querySelector('#confirm-dialog');let pendingDelete;
+for(const form of document.querySelectorAll('[data-confirm-delete]'))form.addEventListener('submit',event=>{if(form.dataset.confirmed)return;if(!dialog){if(!confirm('Remove this announcement? Its history will be retained.'))event.preventDefault();return;}event.preventDefault();pendingDelete=form;dialog.returnValue='cancel';dialog.showModal();});
+dialog?.addEventListener('close',()=>{if(dialog.returnValue==='confirm'&&pendingDelete){pendingDelete.dataset.confirmed='true';pendingDelete.requestSubmit();}pendingDelete=null;});
+for(const form of document.querySelectorAll('form:not([method="dialog"])'))form.addEventListener('submit',event=>{if(event.defaultPrevented)return;queueMicrotask(()=>{if(event.defaultPrevented)return;const button=form.querySelector('button[type="submit"],button:not([type])');if(button){button.disabled=true;button.setAttribute('aria-busy','true');}const loading=document.querySelector('.page-loading');if(loading)loading.hidden=false;});});
+window.addEventListener('pageshow',()=>{document.querySelectorAll('button[aria-busy]').forEach(button=>{button.disabled=false;button.removeAttribute('aria-busy');});const loading=document.querySelector('.page-loading');if(loading)loading.hidden=true;});

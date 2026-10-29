@@ -1,0 +1,1 @@
+{{> workspace-start}}<div class="error-page panel"><span class="empty-icon">{{> icon name="shield"}}</span><p class="eyebrow">REQUEST COULD NOT BE COMPLETED</p><h1>{{errorTitle}}</h1><p>{{errorMessage}}</p><a class="button" href="/announcements">Back to announcements {{> icon name="arrow"}}</a></div>{{> workspace-end}}

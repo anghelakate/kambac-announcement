@@ -1,0 +1,5 @@
+{{> workspace-start}}
+<a class="back-link" href="/announcements">&larr; Back to announcements</a><div class="page-heading"><div><p class="eyebrow">{{#if editing}}REFINE YOUR UPDATE{{else}}SHARE SOMETHING IMPORTANT{{/if}}</p><h1>{{#if editing}}Edit announcement{{else}}Create announcement{{/if}}</h1><p>{{#if editing}}Update your message while keeping its history intact.{{else}}Bring your community the information that matters.{{/if}}</p></div></div>
+{{#if formError}}<div class="alert error" role="alert">{{formError}}</div>{{/if}}
+<form method="POST" action="{{#if editing}}/announcements/{{announcement.id}}/edit{{else}}/announcements{{/if}}" class="announcement-editor">{{> announcement-form}}</form>
+{{> workspace-end}}

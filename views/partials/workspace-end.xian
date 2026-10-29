@@ -1,0 +1,4 @@
+</main><footer class="workspace-footer"><span>&copy; 2026 KAMBAC <span class="footer-dot">&middot;</span> Announcement System</span><span>Built for a connected community</span></footer></div>
+<dialog class="confirm-dialog" id="confirm-dialog"><form method="dialog"><div class="dialog-icon">{{> icon name="archive"}}</div><h2>Remove this announcement?</h2><p>It will no longer be visible to members. Its record and notification history will be retained.</p><div class="button-row"><button class="button secondary" value="cancel">Cancel</button><button class="button danger" value="confirm">Remove announcement</button></div></form></dialog>
+<div class="page-loading" role="status" hidden>Loading your workspace&hellip;</div>
+</body></html>

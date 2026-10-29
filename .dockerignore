@@ -1,0 +1,17 @@
+
+node_modules
+.git
+.vscode
+.env
+backups
+.browser-verification
+docs
+*.md
+*.puml
+*.log
+coverage
+tests
+scripts/prepare-ui-test-accounts.js
+scripts/verify-live.js
+scripts/verify-workspace-data.js
+scripts/start-docker.ps1

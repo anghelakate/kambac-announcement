@@ -1,0 +1,18 @@
+<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+{{#if (eq name 'grid')}}<rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>{{/if}}
+{{#if (eq name 'announce')}}<path d="m4 10 14-6v16L4 14z"/><path d="M4 10H2v4h2m4 2 2 5h3l-2-6m10-7v8"/>{{/if}}
+{{#if (eq name 'bell')}}<path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9m-8 12h4"/>{{/if}}
+{{#if (eq name 'user')}}<circle cx="12" cy="8" r="4"/><path d="M4 21v-2a8 8 0 0 1 16 0v2"/>{{/if}}
+{{#if (eq name 'logout')}}<path d="M9 4H4v16h5m5-12 4 4-4 4m-6-4h10"/>{{/if}}
+{{#if (eq name 'search')}}<circle cx="10" cy="10" r="6"/><path d="m15 15 6 6"/>{{/if}}
+{{#if (eq name 'plus')}}<path d="M12 5v14M5 12h14"/>{{/if}}
+{{#if (eq name 'arrow')}}<path d="M5 12h14m-5-5 5 5-5 5"/>{{/if}}
+{{#if (eq name 'check')}}<path d="m5 12 4 4L19 6"/>{{/if}}
+{{#if (eq name 'edit')}}<path d="m15 4 5 5M4 20l5-1L21 7l-5-5L4 14z"/>{{/if}}
+{{#if (eq name 'archive')}}<path d="M4 8v13h16V8M2 3h20v5H2zM9 12h6"/>{{/if}}
+{{#if (eq name 'menu')}}<path d="M4 6h16M4 12h16M4 18h16"/>{{/if}}
+{{#if (eq name 'chevron')}}<path d="m7 10 5 5 5-5"/>{{/if}}
+{{#if (eq name 'shield')}}<path d="m12 2 8 4v6c0 5-8 10-8 10S4 17 4 12V6z"/><path d="m8 11 3 3 5-5"/>{{/if}}
+{{#if (eq name 'clock')}}<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>{{/if}}
+{{#if (eq name 'close')}}<path d="m6 6 12 12M6 18 18 6"/>{{/if}}
+</svg>

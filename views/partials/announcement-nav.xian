@@ -1,0 +1,2 @@
+<link rel="stylesheet" href="/announcements.css">
+<nav class="announcement-nav"><a href="/announcements">KAMBAC</a><a href="/announcements">Announcements</a><a href="/notifications">Notifications</a><a href="/logout">Sign out</a></nav>

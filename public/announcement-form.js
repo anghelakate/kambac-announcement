@@ -1,0 +1,8 @@
+﻿for(const form of document.querySelectorAll('.announcement-editor')){
+ const audience=form.elements.audience,status=form.elements.status,title=form.elements.title,content=form.elements.content;
+ const update=()=>{const all=audience.value==='all';for(const field of form.querySelectorAll('input[type=checkbox]'))field.disabled=all;const recipients=form.querySelector('[data-recipient-fields]');if(recipients)recipients.hidden=all;const count=form.querySelector('[data-title-count]');if(count)count.textContent=title.value.length+' / 255';const label=form.querySelector('[data-save-announcement] span');if(label)label.textContent=status.value==='published'?'Publish announcement':form.action.endsWith('/edit')?'Save changes':'Save draft';};
+ audience.addEventListener('change',update);status.addEventListener('change',update);title.addEventListener('input',update);update();
+ for(const field of [title,content])field.addEventListener('input',()=>{field.setCustomValidity('');field.classList.remove('form-validation');});
+ form.addEventListener('submit',event=>{for(const field of [title,content]){field.setCustomValidity(field.value.trim()?'':'Please enter a value; spaces alone are not enough.');field.classList.toggle('form-validation',!field.value.trim());}audience.setCustomValidity(audience.value==='specific'&&!form.querySelector('input[type=checkbox]:checked')?'Choose at least one recipient or role.':'');if(!form.reportValidity())event.preventDefault();});
+ audience.addEventListener('change',()=>audience.setCustomValidity(''));for(const field of form.querySelectorAll('input[type=checkbox]'))field.addEventListener('change',()=>audience.setCustomValidity(''));
+}
