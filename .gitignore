@@ -9,6 +9,15 @@ node_modules/
 backups/
 coverage/
 .nyc_output/
+tests/
+test/
+__tests__/
+test-results/
+playwright-report/
+cypress/screenshots/
+cypress/videos/
+*.lcov
+junit*.xml
 dist/
 build/
 tmp/
